@@ -18,8 +18,8 @@
         "test.ts"
     ],
     "public": true,
-    "preferredEditor": "tsprj",
     "supportedTargets": [
         "microbit"
-    ]
+    ],
+    "preferredEditor": "tsprj"
 }

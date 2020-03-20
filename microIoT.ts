@@ -46,7 +46,7 @@ enum NeoPixelColors {
 /**
  *Obloq implementation method.
  */
-//% weight=10 color=#008B00 icon="\uf1eb" block="microIoT"
+//% weight=10 color=#e7660b icon="\uf1eb" block="microIoT_SD"
 namespace microIoT {
     let IIC_ADDRESS = 0x16
     let Topic0CallBack: Action = null;
