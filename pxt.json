@@ -1,0 +1,25 @@
+{
+    "name": "microIoT",
+    "version": "0.0.3",
+    "description": "Add Wi-Fi connectivity to micro:bit and start your IoT project in 5 minutes!",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "README.md",
+        "microIoT.ts",
+        "ws2812b.ts",
+        "sendBuffer.asm",
+        "_locales/zh-cn/microIoT-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "preferredEditor": "tsprj",
+    "supportedTargets": [
+        "microbit"
+    ]
+}
