@@ -163,7 +163,9 @@ namespace microIoT {
         //% blockId=SERVERS_English block="EasyIOT_EN"
         English,
         //% blockId=SERVERS_Global block="Beebotte"
-        Global
+        Global,
+        //% block="SIOT"
+        SIOT
     }
 
     export enum TOPIC {
@@ -349,21 +351,23 @@ namespace microIoT {
      * @param IOT_ID to IOT_ID ,eg: "yourIotId"
      * @param IOT_PWD to IOT_PWD ,eg: "yourIotPwd"
      * @param IOT_TOPIC to IOT_TOPIC ,eg: "yourIotTopic"
+     * @param IP to IP ,eg: "192.168."
     */
 
     //% weight=100
     //% blockExternalInputs=1
-    //% blockId=microIoT_MQTT block="Micro:IoT setup mqtt|IOT_ID(user): %IOT_ID| IOT_PWD(password) :%IOT_PWD|(default topic_0) Topic: %IOT_TOPIC| server: %SERVERS"
+    //% blockId=microIoT_MQTT block="Micro:IoT setup mqtt|IOT_ID(user): %IOT_ID| IOT_PWD(password) :%IOT_PWD|(default topic_0) Topic: %IOT_TOPIC|IP:%IP server:%SERVERS"
     export function microIoT_MQTT(/*SSID: string, PASSWORD: string,*/
         IOT_ID: string, IOT_PWD: string,
-        IOT_TOPIC: string, servers: SERVERS):
+        IOT_TOPIC: string,IP: string, servers: SERVERS):
         void {
         if (servers == SERVERS.China) {
             microIoT_setPara(SETMQTT_SERVER, OBLOQ_MQTT_EASY_IOT_SERVER_CHINA)
         } else if (servers == SERVERS.English) {
             microIoT_setPara(SETMQTT_SERVER, OBLOQ_MQTT_EASY_IOT_SERVER_EN)
-        } else { microIoT_setPara(SETMQTT_SERVER, OBLOQ_MQTT_EASY_IOT_SERVER_GLOBAL) }
-        microIoT_setPara(SETMQTT_PORT, "1883")
+        } else if(servers == SERVERS.Global) { microIoT_setPara(SETMQTT_SERVER, OBLOQ_MQTT_EASY_IOT_SERVER_GLOBAL)}
+        else{microIoT_setPara(SETMQTT_SERVER, IP)}
+        microIoT_setPara(SETMQTT_PORT, "1883")//1883
         microIoT_setPara(SETMQTT_ID, IOT_ID)
         microIoT_setPara(SETMQTT_PASSWORLD, IOT_PWD)
         serial.writeString("wifi conneced ok\r\n");
