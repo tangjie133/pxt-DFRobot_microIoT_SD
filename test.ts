@@ -30,6 +30,7 @@ microIoT.microIoT_MQTT(
     "yourIotId",
     "yourIotPwd",
     "yourIotTopic",
+    "192.168",
     microIoT.SERVERS.China
 )
 microIoT.microIoT_http_IFTTT("yourEvent", "yourKey")
